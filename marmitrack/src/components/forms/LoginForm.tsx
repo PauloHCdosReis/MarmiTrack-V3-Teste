@@ -6,7 +6,7 @@ import { z } from 'zod'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { Eye, EyeOff } from 'lucide-react'
-import ButtonSubmit from '../button/ButtonSubmit'
+import ButtonSubmit from '../buttons/ButtonSubmit'
 
 const loginFormScheme = z.object({
   S_USERNAME: z

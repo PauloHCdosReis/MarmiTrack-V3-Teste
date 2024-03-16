@@ -1,4 +1,4 @@
-import { ModeToggle } from '@/components/button/ModeToggle'
+import { ModeToggle } from '@/components/buttons/ModeToggle'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
