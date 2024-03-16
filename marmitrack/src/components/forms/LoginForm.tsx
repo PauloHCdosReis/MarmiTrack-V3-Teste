@@ -1,12 +1,12 @@
 'use client'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
-import { Button } from '../ui/button'
+import { Eye, EyeOff } from 'lucide-react'
+import ButtonSubmit from '../button/ButtonSubmit'
 
 const loginFormScheme = z.object({
   S_USERNAME: z
@@ -26,7 +26,6 @@ export type LoginFormData = z.infer<typeof loginFormScheme>
 
 export default function LoginForm() {
   const [toggleSenha, setToggleSenha] = useState(false)
-  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -36,7 +35,11 @@ export default function LoginForm() {
   })
 
   return (
-    <form className="flex flex-col gap-4">
+    <form
+      className="flex flex-col gap-4"
+      /* // @ts-expect-error: tipagem está correta. */
+      onSubmit={handleSubmit()}
+    >
       <div className="text-left space-y-2">
         <Label htmlFor="S_USERNAME">Username</Label>
         <Input
@@ -44,21 +47,39 @@ export default function LoginForm() {
           id="S_USERNAME"
           {...register('S_USERNAME')}
           autoComplete="off"
-          className="border-2"
+          className="border-2 hover:border-primary"
         />
+        {errors.S_USERNAME && (
+          <span className="text-sm text-red-500">
+            {errors.S_USERNAME.message}
+          </span>
+        )}
       </div>
       <div className="text-left space-y-2">
-        <Label htmlFor="S_SENHA">Senha</Label>
+        <div className="flex items-center justify-between">
+          <Label htmlFor="S_SENHA">Senha</Label>
+          <div className="text-sm mr-3">
+            <a
+              className="font-semibold cursor-pointer"
+              onClick={() => setToggleSenha((toggleSenha) => !toggleSenha)}
+            >
+              {toggleSenha ? <Eye /> : <EyeOff />}
+            </a>
+          </div>
+        </div>
         <Input
-          type="text"
+          type={toggleSenha ? 'text' : 'password'}
           id="S_SENHA"
           {...register('S_SENHA')}
           autoComplete="off"
-          className="border-2"
+          className="border-2 hover:border-primary"
         />
+        {errors.S_SENHA && (
+          <span className="text-sm text-red-500">{errors.S_SENHA.message}</span>
+        )}
       </div>
       <div className="space-y-2 mt-2">
-        <Button className="w-full">Enviar</Button>
+        <ButtonSubmit btn="Enviar" href="/" />
       </div>
     </form>
   )

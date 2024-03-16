@@ -10,10 +10,10 @@ import {
 } from '@/components/ui/card'
 import Link from 'next/link'
 
-export default function Login() {
+export default async function Login() {
   return (
     <>
-      <Card className="w-1/3 text-center justify-center items-center border-2 border-primary">
+      <Card className="w-1/4 text-center justify-center items-center border-2 border-primary">
         <CardHeader>
           <CardTitle>MarmiTrack</CardTitle>
           <CardDescription>Login</CardDescription>
@@ -21,11 +21,19 @@ export default function Login() {
         <CardContent>
           <LoginForm />
         </CardContent>
-        <CardFooter className="flex flex-row gap-6">
-          <Button variant={'secondary'} className="w-full" asChild>
+        <CardFooter className="flex flex-col md:flex-row gap-6">
+          <Button
+            variant={'link'}
+            className="w-full underline hover:border-2 hover:border-primary"
+            asChild
+          >
             <Link href={'/cadastro'}>Cadastro</Link>
           </Button>
-          <Button variant={'secondary'} className="w-full" asChild>
+          <Button
+            variant={'link'}
+            className="w-full underline hover:border-2 hover:border-primary"
+            asChild
+          >
             <Link href={'/esquecisenha'}>Esqueci Senha</Link>
           </Button>
         </CardFooter>

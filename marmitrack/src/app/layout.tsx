@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/providers/ThemeProvider'
+import { AuthProvider } from '@/providers/AuthProvider'
+import { Toaster } from 'sonner'
 
 export const metadata: Metadata = {
   title: 'MarmiTrack',
@@ -21,7 +23,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AuthProvider>{children}</AuthProvider>
+          <Toaster position="top-right" expand={false} closeButton={true} />
         </ThemeProvider>
       </body>
     </html>
