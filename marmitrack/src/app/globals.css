@@ -372,3 +372,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: UniviaProBold;
+  src: url(./../../assets/font/UniviaPro-Bold.ttf);
+}
+
+@font-face {
+  font-family: UniviaProRegular;
+  src: url(./../../assets/font/UniviaPro-Regular.ttf);
+}
+
+@font-face {
+  font-family: UniviaProUltra;
+  src: url(./../../assets/font/UniviaPro-Ultra.ttf);
+}

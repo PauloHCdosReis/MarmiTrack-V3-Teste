@@ -18,6 +18,14 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        univiaProBold: ['UniviaProBold', 'sans-serif'],
+        univiaProRegular: ['UniviaProRegular', 'sans-serif'],
+        univiaProUltra: ['UniviaProUltra', 'sans-serif'],
+      },
+      spacing: {
+        wcalc: 'calc(100vw - 49px)',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

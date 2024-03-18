@@ -7,6 +7,7 @@ import { toast } from 'sonner'
 type AuthContextType = {
   isAuthenticated: boolean
   SingIn: (data: SingInType) => Promise<void>
+  SingOff: () => Promise<void>
 }
 
 export const AuthContext = createContext({} as AuthContextType)
@@ -33,7 +34,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           })
       })
 
-    toast.promise(response, {
+    toast.promise(response(), {
       loading: 'Carregando...',
       success: (message) => {
         return `${message}`
@@ -44,8 +45,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     })
   }
 
+  async function SingOff() {
+    await fetch('/api/singoff', {
+      method: 'GET',
+    })
+  }
+
   return (
-    <AuthContext.Provider value={{ isAuthenticated, SingIn }}>
+    <AuthContext.Provider value={{ isAuthenticated, SingIn, SingOff }}>
       {children}
     </AuthContext.Provider>
   )

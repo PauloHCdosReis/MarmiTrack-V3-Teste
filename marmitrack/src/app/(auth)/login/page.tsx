@@ -13,7 +13,7 @@ import Link from 'next/link'
 export default async function Login() {
   return (
     <>
-      <Card className="w-1/4 text-center justify-center items-center border-2 border-primary">
+      <Card className="w-11/12 md:w-1/2 lg:w-4/12 2xl:w-1/4 flex text-center justify-center flex-col rounded-lg border-2 border-primary">
         <CardHeader>
           <CardTitle>MarmiTrack</CardTitle>
           <CardDescription>Login</CardDescription>
@@ -21,7 +21,7 @@ export default async function Login() {
         <CardContent>
           <LoginForm />
         </CardContent>
-        <CardFooter className="flex flex-col md:flex-row gap-6">
+        <CardFooter className="flex flex-col md:flex-row gap-2">
           <Button
             variant={'link'}
             className="w-full underline hover:border-2 hover:border-primary"

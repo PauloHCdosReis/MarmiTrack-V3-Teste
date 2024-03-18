@@ -1,16 +1,25 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
+import { Loader2 } from 'lucide-react'
+import { useFormStatus } from 'react-dom'
 
-type ButtonSubmitType = {
-  btn: string
-  href: string
-}
+const ButtonSubmit = () => {
+  const { pending } = useFormStatus()
 
-const ButtonSubmit = ({ btn, href }: ButtonSubmitType) => {
   return (
-    <Button /* asChild */ variant={'default'} className="w-full" type="submit">
-      Enviar
-      {/* <Link href={href}>{btn}</Link> */}
+    <Button
+      type="submit"
+      className="w-full h-9 flex flex-row font-univiaProUltra"
+      disabled={pending}
+    >
+      {pending === true ? (
+        <>
+          <Loader2 className="animate-spin" />
+        </>
+      ) : (
+        'Enviar'
+      )}
     </Button>
   )
 }

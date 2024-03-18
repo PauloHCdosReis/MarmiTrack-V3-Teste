@@ -7,6 +7,7 @@ import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { Eye, EyeOff } from 'lucide-react'
 import ButtonSubmit from '../buttons/ButtonSubmit'
+import { useAuthProvider } from '@/hooks/useAuthProvider'
 
 const loginFormScheme = z.object({
   S_USERNAME: z
@@ -33,12 +34,13 @@ export default function LoginForm() {
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginFormScheme),
   })
+  const { SingIn } = useAuthProvider()
 
   return (
     <form
       className="flex flex-col gap-4"
-      /* // @ts-expect-error: tipagem está correta. */
-      onSubmit={handleSubmit()}
+      // @ts-expect-error: tipagem está correta.
+      action={handleSubmit(SingIn)}
     >
       <div className="text-left space-y-2">
         <Label htmlFor="S_USERNAME">Username</Label>
@@ -79,7 +81,7 @@ export default function LoginForm() {
         )}
       </div>
       <div className="space-y-2 mt-2">
-        <ButtonSubmit btn="Enviar" href="/" />
+        <ButtonSubmit />
       </div>
     </form>
   )

@@ -1,5 +1,7 @@
 import { ModeToggle } from '@/components/buttons/ModeToggle'
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
+import Loading from './loading'
 
 export const metadata: Metadata = {
   title: 'MarmiTrack Auth',
@@ -12,8 +14,8 @@ export default function RootLayout({
 }) {
   return (
     <div className="flex items-center justify-center min-h-screen relative">
-      {children}
-      <div className="fixed bottom-8 right-8">
+      <Suspense fallback={<Loading />}>{children}</Suspense>
+      <div className="absolute bottom-3 right-3 md:bottom-5 lg:bottom-8 md:right-5 lg:right-8">
         <ModeToggle />
       </div>
     </div>
