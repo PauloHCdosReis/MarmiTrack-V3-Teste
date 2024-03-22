@@ -15,13 +15,15 @@ export default async function Login() {
     <>
       <Card className="w-11/12 md:w-1/2 lg:w-4/12 2xl:w-1/4 flex text-center justify-center flex-col rounded-lg border-2 border-primary">
         <CardHeader>
-          <CardTitle>MarmiTrack</CardTitle>
-          <CardDescription>Login</CardDescription>
+          <CardTitle className="font-univiaProUltra">MarmiTrack</CardTitle>
+          <CardDescription className="font-univiaProUltra text-lg">
+            Login
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <LoginForm />
         </CardContent>
-        <CardFooter className="flex flex-col md:flex-row gap-2">
+        <CardFooter className="flex flex-col md:flex-row gap-2 font-univiaProUltra">
           <Button
             variant={'link'}
             className="w-full underline hover:border-2 hover:border-primary"

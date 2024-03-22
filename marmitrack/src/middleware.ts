@@ -1,4 +1,3 @@
-import { Session } from 'inspector'
 import { NextRequest, NextResponse } from 'next/server'
 
 const paginasPublicas = ['/login', '/cadastro', '/esquecisenha']

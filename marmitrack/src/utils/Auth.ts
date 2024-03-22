@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation'
 import { GetCookie } from './Cookies'
 
 type tokenType = {
@@ -27,10 +28,22 @@ export async function GetAccessToken() {
   return false
 }
 
-export async function RefreshTokenToken() {
+export async function GetRefreshToken() {
   const RefreshToken = await GetCookie('RefreshToken')
   if (RefreshToken) {
     return RefreshToken
   }
   return false
+}
+
+export async function GroupAdm() {
+  const session = await Session()
+  if (session) {
+    const isAdm = session.roles.includes('ADMIN')
+    if (isAdm === false) {
+      redirect('/')
+    }
+  } else {
+    redirect('/login')
+  }
 }

@@ -49,7 +49,6 @@ export function ModeToggle() {
     dark: ['Orange', 'Red', 'Violet', 'Yellow', 'Blue', 'Green', 'Rose'],
   }
 
-  console.log(theme)
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

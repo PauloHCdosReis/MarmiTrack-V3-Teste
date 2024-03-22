@@ -16,7 +16,7 @@ export default function RootLayout({
     <div className="flex items-center justify-center min-h-screen relative">
       <Suspense fallback={<Loading />}>{children}</Suspense>
       <div className="absolute bottom-3 right-3 md:bottom-5 lg:bottom-8 md:right-5 lg:right-8">
-        <ModeToggle />
+        <ModeToggle type="public" />
       </div>
     </div>
   )

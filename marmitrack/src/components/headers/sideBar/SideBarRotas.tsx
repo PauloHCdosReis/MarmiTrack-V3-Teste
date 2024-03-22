@@ -42,9 +42,7 @@ export default function SideBarRotas({ roles }: HeadersType) {
               className={`w-full rounded-none border-0 justify-center ${router.startsWith('/user') ? 'bg-secondary' : ''} hover:border-y-2 hover:border-primary`}
               variant="outline"
             >
-              <Link href={'/'}>
-                <UserCog />
-              </Link>
+              <UserCog />
             </Button>
           </TooltipTrigger>
           <TooltipContent
@@ -75,9 +73,7 @@ export default function SideBarRotas({ roles }: HeadersType) {
               className={`w-full rounded-none border-0 justify-center ${router.startsWith('/admin') ? 'bg-secondary' : ''} hover:border-y-2 hover:border-primary`}
               variant="outline"
             >
-              <Link href={'/'}>
-                <CreditCard />
-              </Link>
+              <CreditCard />
             </Button>
           </TooltipTrigger>
           <TooltipContent

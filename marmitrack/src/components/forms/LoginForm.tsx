@@ -43,23 +43,27 @@ export default function LoginForm() {
       action={handleSubmit(SingIn)}
     >
       <div className="text-left space-y-2">
-        <Label htmlFor="S_USERNAME">Username</Label>
+        <Label htmlFor="S_USERNAME" className="font-univiaProUltra">
+          Username
+        </Label>
         <Input
           type="text"
           id="S_USERNAME"
           {...register('S_USERNAME')}
           autoComplete="off"
-          className="border-2 hover:border-primary"
+          className="border-2 hover:border-primary font-univiaProUltra"
         />
         {errors.S_USERNAME && (
-          <span className="text-sm text-red-500">
+          <span className="text-sm font-univiaProBold text-red-500">
             {errors.S_USERNAME.message}
           </span>
         )}
       </div>
       <div className="text-left space-y-2">
         <div className="flex items-center justify-between">
-          <Label htmlFor="S_SENHA">Senha</Label>
+          <Label htmlFor="S_SENHA" className="font-univiaProUltra">
+            Senha
+          </Label>
           <div className="text-sm mr-3">
             <a
               className="font-semibold cursor-pointer"
@@ -74,10 +78,12 @@ export default function LoginForm() {
           id="S_SENHA"
           {...register('S_SENHA')}
           autoComplete="off"
-          className="border-2 hover:border-primary"
+          className="border-2 hover:border-primary font-univiaProUltra"
         />
         {errors.S_SENHA && (
-          <span className="text-sm text-red-500">{errors.S_SENHA.message}</span>
+          <span className="text-sm text-red-500 font-univiaProBold">
+            {errors.S_SENHA.message}
+          </span>
         )}
       </div>
       <div className="space-y-2 mt-2">
